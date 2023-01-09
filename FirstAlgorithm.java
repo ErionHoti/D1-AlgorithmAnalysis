@@ -1,0 +1,17 @@
+import java.util.List;
+
+public class FirstAlgorithm {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        return rec(triangle,0,0);
+    }
+    public int rec(List<List<Integer>> arr,int index,int j){
+        if(index==arr.size()-1) 
+        	return arr.get(index).get(j);
+        
+        int down = arr.get(index).get(j) + rec(arr,index+1,j);
+        int down_right = arr.get(index).get(j) + rec(arr,index+1,j+1);
+        
+        return Math.min(down,down_right);
+    }
+}
+
